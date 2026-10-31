@@ -1,0 +1,13 @@
+{
+  "name": "Insay Razy — Fullstack JavaScript Developer",
+  "short_name": "Insay Razy",
+  "description": "Portfolio of Insay Razy, Fullstack JavaScript Developer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050816",
+  "theme_color": "#050816",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/images/og-image.png", "sizes": "1200x630", "type": "image/png" }
+  ]
+}

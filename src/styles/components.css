@@ -1,0 +1,142 @@
+/* ------------------------------------------------------------------ */
+/* Component layer — glass surfaces, gradients, borders, spotlight      */
+/* ------------------------------------------------------------------ */
+
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes border-spin {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+@layer components {
+  .section {
+    @apply relative py-24 sm:py-28 lg:py-36;
+  }
+
+  .glass {
+    @apply border border-white/[0.08] bg-white/[0.03] shadow-glass backdrop-blur-xl;
+  }
+
+  .glass-strong {
+    @apply border border-white/10 bg-night-700/60 shadow-glass backdrop-blur-2xl;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-text bg-[length:200%_auto] bg-clip-text text-transparent;
+  }
+
+  .text-gradient-animated {
+    @apply bg-gradient-text bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x;
+  }
+
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(255 255 255 / 0.18);
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-cyan-200/90 backdrop-blur-md;
+  }
+
+  /* Rotating conic gradient border (Animated Border) */
+  .animated-border {
+    position: relative;
+    isolation: isolate;
+  }
+  .animated-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    padding: 1px;
+    border-radius: inherit;
+    background: conic-gradient(
+      from var(--border-angle),
+      transparent 0%,
+      rgb(99 102 241 / 0.9) 8%,
+      rgb(34 211 238 / 0.9) 16%,
+      rgb(168 85 247 / 0.9) 24%,
+      transparent 32%,
+      transparent 100%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: border-spin 5s linear infinite;
+    pointer-events: none;
+  }
+  .animated-border-hover::before {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .animated-border-hover:hover::before,
+  .animated-border-hover:focus-within::before {
+    opacity: 1;
+  }
+
+  /* Static gradient hairline border */
+  .gradient-border {
+    position: relative;
+    isolation: isolate;
+  }
+  .gradient-border::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgb(255 255 255 / 0.18), rgb(255 255 255 / 0.02) 40%, rgb(139 92 246 / 0.35));
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Mouse-following spotlight (Hover Glow) */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .spotlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(
+      420px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+      rgb(99 102 241 / 0.18),
+      rgb(34 211 238 / 0.06) 35%,
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+
+  /* Tilt glare */
+  .tilt-glare {
+    background: radial-gradient(
+      600px circle at var(--glare-x, 50%) var(--glare-y, 50%),
+      rgb(255 255 255 / 0.12),
+      transparent 45%
+    );
+  }
+
+  .skip-link {
+    @apply fixed left-4 top-4 z-[200] -translate-y-24 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-night transition-transform focus:translate-y-0;
+  }
+}

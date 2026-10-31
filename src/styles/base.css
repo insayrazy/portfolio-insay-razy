@@ -1,0 +1,98 @@
+/* ------------------------------------------------------------------ */
+/* Base layer — document defaults, Lenis, accessibility                 */
+/* ------------------------------------------------------------------ */
+
+@layer base {
+  :root {
+    --night: #050816;
+    --night-700: #0f172a;
+    --night-600: #111827;
+    --primary-blue: #3b82f6;
+    --primary-indigo: #6366f1;
+    --primary-violet: #8b5cf6;
+    --primary-purple: #a855f7;
+    --accent-cyan: #06b6d4;
+    --accent-light: #22d3ee;
+    --nav-height: 5rem;
+    color-scheme: dark;
+  }
+
+  html {
+    background-color: var(--night);
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: transparent;
+    scroll-padding-top: var(--nav-height);
+  }
+
+  body {
+    /* No background here: a body background would paint over the fixed
+       negative-z background layers (aurora + 3D). <html> carries the colour. */
+    @apply min-h-screen overflow-x-hidden bg-transparent font-sans text-white;
+  }
+
+  ::selection {
+    background: rgb(99 102 241 / 0.45);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-light);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--night);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary-blue), var(--primary-purple));
+    border: 3px solid var(--night);
+    border-radius: 999px;
+  }
+
+  /* Lenis smooth scroll */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  html.is-loading,
+  html.is-loading body {
+    overflow: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
