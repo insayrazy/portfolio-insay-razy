@@ -1,4 +1,4 @@
-import { hacktiv8Credential } from '@/data/certificates'
+import { hacktiv8Credential } from '@/data/certificates';
 
 /**
  * Work & education timeline (source: CV Insay Razy).
@@ -35,7 +35,7 @@ const bprsItStaff = {
     ],
   },
   tech: ['JavaScript', 'Node.js', 'Express.js', 'Laravel', 'PHP', 'SQL Server', 'REST API'],
-}
+};
 
 export const experiences = [
   {
@@ -95,11 +95,14 @@ export const experiences = [
   },
   {
     id: 'hacktiv8',
-    role: { en: 'Full Stack JavaScript Immersive Program', id: 'Full Stack JavaScript Immersive Program' },
+    role: {
+      en: 'Full Stack JavaScript Immersive Program',
+      id: 'Full Stack JavaScript Immersive Program',
+    },
     company: 'Hacktiv8 Indonesia',
     type: { en: 'Bootcamp · Graduate', id: 'Bootcamp · Lulus' },
     kind: 'education',
-    location: { en: 'Indonesia', id: 'Indonesia' },
+    location: { en: 'Jakarta Selatan, Indonesia', id: 'Jakarta Selatan, Indonesia' },
     period: { en: 'Dec 2022 — Apr 2023', id: 'Des 2022 — Apr 2023' },
     description: {
       en: 'Graduated from an intensive, project-based fullstack JavaScript bootcamp covering modern JavaScript, Node.js, Express, PostgreSQL, React, REST APIs, testing and team collaboration.',
@@ -118,12 +121,18 @@ export const experiences = [
     tech: ['JavaScript', 'Node.js', 'Express', 'PostgreSQL', 'React', 'REST API'],
     links: [
       { label: { en: 'Certificate', id: 'Sertifikat' }, href: hacktiv8Credential.certificateUrl },
-      { label: { en: 'Transcript', id: 'Transkrip Nilai' }, href: hacktiv8Credential.transcriptUrl },
+      {
+        label: { en: 'Transcript', id: 'Transkrip Nilai' },
+        href: hacktiv8Credential.transcriptUrl,
+      },
     ],
   },
   {
     id: 'polihasnur',
-    role: { en: 'Diploma III (D3) in Computer Engineering', id: 'Diploma III (D3) Teknik Komputer' },
+    role: {
+      en: 'Diploma III (D3) in Computer Engineering',
+      id: 'Diploma III (D3) Teknik Komputer',
+    },
     company: 'Politeknik Harapan Bersama Tegal',
     type: { en: 'Education · GPA 3.39', id: 'Pendidikan · IPK 3.39' },
     kind: 'education',
@@ -139,4 +148,4 @@ export const experiences = [
     },
     tech: ['IoT', 'Web Monitoring'],
   },
-]
+];
