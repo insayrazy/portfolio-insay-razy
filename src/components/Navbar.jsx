@@ -7,6 +7,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher'
 import Logo from '@/components/Logo'
 import Magnetic from '@/components/Magnetic'
 import MobileMenu from '@/components/MobileMenu'
+import ThemeToggle from '@/components/ThemeToggle'
 import { Button } from '@/components/ui/button'
 import { navLinks, navSectionIds } from '@/data/navigation'
 import { site } from '@/data/site'
@@ -118,6 +119,7 @@ export default function Navbar() {
           </ul>
 
           <div className="flex shrink-0 items-center gap-2">
+            <ThemeToggle />
             <LanguageSwitcher />
 
             <Magnetic className="hidden md:inline-block lg:hidden xl:inline-block">

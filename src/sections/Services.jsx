@@ -46,7 +46,7 @@ export default function Services() {
               >
                 <div className="mb-8 flex items-start justify-between">
                   <span className="relative grid h-14 w-14 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] transition-all duration-700 ease-out-expo group-hover:rotate-[360deg] group-hover:border-transparent group-hover:bg-gradient-primary group-hover:shadow-glow">
-                    <Icon className="h-6 w-6 text-cyan-300 transition-colors duration-500 group-hover:text-white" aria-hidden="true" />
+                    <Icon className="h-6 w-6 text-cyan-300 transition-colors duration-500 group-hover:text-pure" aria-hidden="true" />
                   </span>
                   <span className="text-outline font-display text-5xl font-bold transition-all duration-500 group-hover:[-webkit-text-stroke:1px_rgba(129,140,248,0.6)]">
                     {padIndex(index + 1)}

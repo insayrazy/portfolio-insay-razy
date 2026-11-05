@@ -11,7 +11,7 @@ export default function Logo({ className, showText = true }) {
 
   return (
     <span className={cn('group/logo inline-flex items-center gap-3', className)}>
-      <svg viewBox="0 0 64 64" className="h-10 w-10 shrink-0" aria-hidden="true">
+      <svg viewBox="0 0 64 64" className="h-10 w-10 shrink-0 text-white" aria-hidden="true">
         <defs>
           <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
             <stop offset="0" stopColor="#22D3EE" />
@@ -21,7 +21,7 @@ export default function Logo({ className, showText = true }) {
         </defs>
         <path
           d={LOGO_HEX_PATH}
-          fill="rgba(255,255,255,0.03)"
+          fill="none"
           stroke={`url(#${gradientId})`}
           strokeWidth="3"
           strokeLinejoin="round"
@@ -33,7 +33,7 @@ export default function Logo({ className, showText = true }) {
         <path
           d={LOGO_MARK_PATH}
           fill="none"
-          stroke="#fff"
+          stroke="currentColor"
           strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"

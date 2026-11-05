@@ -176,7 +176,7 @@ export default function Contact() {
                   src={site.mapEmbedUrl}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="h-full w-full border-0 opacity-80 [filter:invert(92%)_hue-rotate(185deg)_saturate(0.7)_brightness(0.95)]"
+                  className="map-frame h-full w-full border-0 opacity-80"
                 />
                 <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10" />
                 <div className="pointer-events-none absolute bottom-4 left-4 flex items-center gap-2 rounded-full bg-night/80 px-4 py-2 text-xs font-medium backdrop-blur-md">

@@ -85,7 +85,7 @@ export default function Skills() {
                   onKeyDown={(event) => handleKeyDown(event, index)}
                   className={cn(
                     'relative isolate rounded-full px-5 py-2.5 text-sm font-medium transition-colors duration-300',
-                    selected ? 'text-white' : 'text-slate-400 hover:text-white',
+                    selected ? 'text-pure' : 'text-slate-400 hover:text-white',
                   )}
                 >
                   {selected ? (

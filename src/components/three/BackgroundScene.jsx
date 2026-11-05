@@ -1,6 +1,7 @@
 import { useMemo, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { AdditiveBlending, Color, MathUtils } from 'three'
+import { AdditiveBlending, Color, MathUtils, NormalBlending } from 'three'
+import useTheme from '@/hooks/useTheme'
 
 /* ------------------------------------------------------------------ */
 /* Particle wave floor — displaced on the GPU, driven by time + scroll  */
@@ -46,7 +47,7 @@ const waveFragmentShader = /* glsl */ `
   }
 `
 
-function WaveField({ scroll }) {
+function WaveField({ scroll, light }) {
   const material = useRef(null)
 
   const positions = useMemo(() => {
@@ -70,10 +71,10 @@ function WaveField({ scroll }) {
       uTime: { value: 0 },
       uScroll: { value: 0 },
       uPixelRatio: { value: Math.min(window.devicePixelRatio || 1, 1.5) },
-      uColorA: { value: new Color('#3B82F6') },
-      uColorB: { value: new Color('#22D3EE') },
+      uColorA: { value: new Color(light ? '#2563EB' : '#3B82F6') },
+      uColorB: { value: new Color(light ? '#0891B2' : '#22D3EE') },
     }),
-    [],
+    [light],
   )
 
   useFrame((state) => {
@@ -94,7 +95,7 @@ function WaveField({ scroll }) {
         uniforms={uniforms}
         transparent
         depthWrite={false}
-        blending={AdditiveBlending}
+        blending={light ? NormalBlending : AdditiveBlending}
       />
     </points>
   )
@@ -105,11 +106,13 @@ function WaveField({ scroll }) {
 /* ------------------------------------------------------------------ */
 
 const STAR_COLORS = ['#A5B4FC', '#22D3EE', '#C084FC', '#FFFFFF', '#6366F1']
+const STAR_COLORS_LIGHT = ['#6366F1', '#0891B2', '#9333EA', '#3B82F6', '#4F46E5']
 
-function Starfield({ scroll }) {
+function Starfield({ scroll, light }) {
   const points = useRef(null)
 
   const [positions, colors] = useMemo(() => {
+    const palette = light ? STAR_COLORS_LIGHT : STAR_COLORS
     const count = 1800
     const position = new Float32Array(count * 3)
     const color = new Float32Array(count * 3)
@@ -121,13 +124,13 @@ function Starfield({ scroll }) {
       position[i * 3] = radius * Math.sin(phi) * Math.cos(theta)
       position[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta)
       position[i * 3 + 2] = radius * Math.cos(phi) - 10
-      tint.set(STAR_COLORS[i % STAR_COLORS.length])
+      tint.set(palette[i % palette.length])
       color[i * 3] = tint.r
       color[i * 3 + 1] = tint.g
       color[i * 3 + 2] = tint.b
     }
     return [position, color]
-  }, [])
+  }, [light])
 
   useFrame((_, delta) => {
     if (!points.current) return
@@ -146,9 +149,9 @@ function Starfield({ scroll }) {
         sizeAttenuation
         vertexColors
         transparent
-        opacity={0.85}
+        opacity={light ? 0.6 : 0.85}
         depthWrite={false}
-        blending={AdditiveBlending}
+        blending={light ? NormalBlending : AdditiveBlending}
       />
     </points>
   )
@@ -165,7 +168,7 @@ const SHAPES = [
   { id: 'torus', position: [-7, -1, -24], scale: 2.8, color: '#3B82F6', speed: 0.07, geometry: 'torus' },
 ]
 
-function FloatingShape({ shape, scroll }) {
+function FloatingShape({ shape, scroll, light }) {
   const mesh = useRef(null)
 
   useFrame((state, delta) => {
@@ -181,7 +184,7 @@ function FloatingShape({ shape, scroll }) {
       {shape.geometry === 'torusKnot' ? <torusKnotGeometry args={[1, 0.3, 120, 12]} /> : null}
       {shape.geometry === 'octahedron' ? <octahedronGeometry args={[1, 0]} /> : null}
       {shape.geometry === 'torus' ? <torusGeometry args={[1, 0.35, 12, 48]} /> : null}
-      <meshBasicMaterial color={shape.color} wireframe transparent opacity={0.14} />
+      <meshBasicMaterial color={shape.color} wireframe transparent opacity={light ? 0.24 : 0.14} />
     </mesh>
   )
 }
@@ -209,6 +212,8 @@ function Rig({ scroll }) {
  */
 export default function BackgroundScene({ active = true }) {
   const scroll = useRef(0)
+  const { theme } = useTheme()
+  const light = theme === 'light'
 
   return (
     <Canvas
@@ -220,10 +225,11 @@ export default function BackgroundScene({ active = true }) {
       eventPrefix="client"
     >
       <Rig scroll={scroll} />
-      <Starfield scroll={scroll} />
-      <WaveField scroll={scroll} />
+      {/* Keyed by theme: blending modes cannot change on a live material */}
+      <Starfield key={`stars-${theme}`} scroll={scroll} light={light} />
+      <WaveField key={`waves-${theme}`} scroll={scroll} light={light} />
       {SHAPES.map((shape) => (
-        <FloatingShape key={shape.id} shape={shape} scroll={scroll} />
+        <FloatingShape key={shape.id} shape={shape} scroll={scroll} light={light} />
       ))}
     </Canvas>
   )

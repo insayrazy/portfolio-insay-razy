@@ -35,7 +35,7 @@ export const skillCategories = [
     description: { en: 'Robust APIs, authentication and business logic.', id: 'API yang andal, autentikasi, dan logika bisnis.' },
     skills: [
       { name: 'Node.js', level: 88, icon: SiNodedotjs, color: '#5FA04E' },
-      { name: 'Express.js', level: 85, icon: SiExpress, color: '#FFFFFF' },
+      { name: 'Express.js', level: 85, icon: SiExpress, color: 'currentColor' },
       { name: 'Laravel', level: 80, icon: SiLaravel, color: '#FF2D20' },
       { name: 'PHP', level: 80, icon: SiPhp, color: '#8892BF' },
     ],
@@ -55,7 +55,7 @@ export const skillCategories = [
     description: { en: 'A workflow tuned for collaboration and speed.', id: 'Alur kerja yang mendukung kolaborasi dan kecepatan.' },
     skills: [
       { name: 'Git', level: 99, icon: SiGit, color: '#F05032' },
-      { name: 'GitHub', level: 99, icon: SiGithub, color: '#FFFFFF' },
+      { name: 'GitHub', level: 99, icon: SiGithub, color: 'currentColor' },
       { name: 'VS Code', level: 99, icon: VscVscode, color: '#22A6F2' },
       { name: 'Postman', level: 75, icon: SiPostman, color: '#FF6C37' },
       { name: 'Figma', level: 40, icon: SiFigma, color: '#A259FF' },

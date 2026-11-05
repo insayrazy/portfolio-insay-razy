@@ -11,6 +11,7 @@ Website portfolio pribadi saya sebagai **Fullstack JavaScript Developer**. Menam
 Website ini saya rancang sebagai pengalaman interaktif, bukan sekadar halaman CV. Isinya mencakup profil, keahlian, pengalaman kerja, studi kasus project, serta sertifikasi Hacktiv8.
 
 - **Dwibahasa:** Indonesia dan Inggris, dengan pilihan bahasa yang tersimpan di browser
+- **Mode gelap dan terang:** tema bisa diganti lewat navbar dan pilihannya tersimpan di browser
 - **Animasi 3D dan scroll:** scene WebGL pada hero dan background, smooth scroll, serta section horizontal
 - **Studi kasus project:** galeri screenshot, peran, stack, dan hasil untuk setiap project
 - **Responsif dan aksesibel:** menyesuaikan layar desktop hingga mobile, mendukung navigasi keyboard dan `prefers-reduced-motion`

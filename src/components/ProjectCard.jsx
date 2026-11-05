@@ -88,7 +88,7 @@ export default function ProjectCard({ project, wide = false, className }) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative z-30 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-night transition-all duration-300 hover:bg-cyan-100 hover:shadow-glow-cyan"
+              className="relative z-30 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-night transition-all duration-300 hover:opacity-90 hover:shadow-glow-cyan"
               aria-label={`${t('projects.liveDemoLabel', { name: title })} ${t('a11y.newTab')}`}
             >
               {t('projects.liveDemo')}

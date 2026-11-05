@@ -20,7 +20,7 @@ export default function Statistics() {
                 <div key={id} className="group flex flex-col gap-4 p-7 sm:p-8">
                   <div className="flex items-center justify-between">
                     <span className="grid h-11 w-11 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] transition-all duration-500 group-hover:scale-110 group-hover:border-transparent group-hover:bg-gradient-primary">
-                      <Icon className="h-5 w-5 text-cyan-300 transition-colors group-hover:text-white" aria-hidden="true" />
+                      <Icon className="h-5 w-5 text-cyan-300 transition-colors group-hover:text-pure" aria-hidden="true" />
                     </span>
                     <span className="font-mono text-xs text-slate-500">0{index + 1}</span>
                   </div>

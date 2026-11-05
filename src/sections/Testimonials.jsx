@@ -110,7 +110,7 @@ export default function Testimonials() {
                   <figcaption className="relative flex items-center gap-4">
                     <span
                       className={cn(
-                        'grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br font-display text-lg font-bold text-white shadow-glow',
+                        'grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br font-display text-lg font-bold text-pure shadow-glow',
                         AVATAR_GRADIENTS[index % AVATAR_GRADIENTS.length],
                       )}
                       aria-hidden="true"

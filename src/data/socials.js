@@ -8,7 +8,7 @@ export const socials = [
     handle: '@insayrazy',
     href: site.socials.github,
     icon: FaGithub,
-    color: '#FFFFFF',
+    color: 'currentColor',
   },
   {
     id: 'linkedin',

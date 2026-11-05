@@ -12,6 +12,12 @@ export const LoaderContext = createContext({
   completeLoading: () => {},
 })
 
+/** Active colour theme ('dark' | 'light'). */
+export const ThemeContext = createContext({
+  theme: 'dark',
+  toggleTheme: () => {},
+})
+
 /** Active UI language ('en' | 'id'). */
 export const LanguageContext = createContext({
   lang: 'en',

@@ -73,7 +73,7 @@ export default function Loader() {
       <div className="loader-content relative flex h-full flex-col items-center justify-center gap-8 px-6">
         <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-600/20 blur-[100px]" />
 
-        <svg viewBox="0 0 64 64" className="relative h-20 w-20" aria-hidden="true">
+        <svg viewBox="0 0 64 64" className="relative h-20 w-20 text-white" aria-hidden="true">
           <defs>
             <linearGradient id="loader-gradient" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stopColor="#22D3EE" />
@@ -95,7 +95,7 @@ export default function Loader() {
             className="loader-e"
             d={LOGO_MARK_PATH}
             fill="none"
-            stroke="#fff"
+            stroke="currentColor"
             strokeWidth="3.5"
             strokeLinecap="round"
             strokeLinejoin="round"

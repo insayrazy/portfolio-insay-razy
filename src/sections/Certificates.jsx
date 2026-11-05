@@ -28,7 +28,7 @@ function CredentialCard() {
 
       <div className="relative mb-6 flex items-start justify-between gap-4">
         <span
-          className="grid h-16 w-16 place-items-center rounded-2xl text-white shadow-lg"
+          className="grid h-16 w-16 place-items-center rounded-2xl text-pure shadow-lg"
           style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
           aria-hidden="true"
         >
@@ -100,7 +100,7 @@ function CurriculumCard({ item }) {
 
       <div className="relative mb-8 flex items-start justify-between">
         <span
-          className="grid h-12 w-12 place-items-center rounded-2xl text-white transition-transform duration-500 ease-out-expo group-hover:rotate-[-10deg] group-hover:scale-110"
+          className="grid h-12 w-12 place-items-center rounded-2xl text-pure transition-transform duration-500 ease-out-expo group-hover:rotate-[-10deg] group-hover:scale-110"
           style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
           aria-hidden="true"
         >

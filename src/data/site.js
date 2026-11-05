@@ -1,4 +1,4 @@
-import profileImage from '@/assets/images/profile.svg';
+import profileImage from '@/assets/images/profile.png';
 
 /**
  * Global site configuration. Update personal links here — every component

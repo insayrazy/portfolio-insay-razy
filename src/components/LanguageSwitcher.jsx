@@ -27,7 +27,7 @@ export default function LanguageSwitcher({ className }) {
             lang={code}
             className={cn(
               'relative isolate h-8 min-w-[2.5rem] rounded-full px-2.5 text-xs font-semibold tracking-wider transition-colors duration-300',
-              active ? 'text-white' : 'text-slate-400 hover:text-white',
+              active ? 'text-pure' : 'text-slate-400 hover:text-white',
             )}
           >
             {active ? (

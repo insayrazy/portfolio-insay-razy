@@ -61,7 +61,7 @@ export default function ProjectsPage() {
                 aria-pressed={active}
                 className={cn(
                   'relative isolate rounded-full px-5 py-2.5 text-sm font-medium transition-colors duration-300',
-                  active ? 'text-white' : 'text-slate-400 hover:text-white',
+                  active ? 'text-pure' : 'text-slate-400 hover:text-white',
                 )}
               >
                 {active ? (

@@ -7,6 +7,8 @@ export const translations = {
     a11y: {
       skipToContent: 'Skip to content',
       chooseLanguage: 'Choose language',
+      switchToLight: 'Switch to light mode',
+      switchToDark: 'Switch to dark mode',
       loadingPortfolio: 'Loading portfolio',
       loadingPage: 'Loading page',
       backHome: '{name} — back to home',
@@ -196,6 +198,8 @@ export const translations = {
     a11y: {
       skipToContent: 'Langsung ke konten',
       chooseLanguage: 'Pilih bahasa',
+      switchToLight: 'Ganti ke mode terang',
+      switchToDark: 'Ganti ke mode gelap',
       loadingPortfolio: 'Memuat portfolio',
       loadingPage: 'Memuat halaman',
       backHome: '{name} — kembali ke beranda',

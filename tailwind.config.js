@@ -15,14 +15,30 @@ export default {
     },
     extend: {
       colors: {
+        // Theme-aware palette: values live in src/styles/base.css. `white` is the
+        // foreground colour (dark in light mode); use `pure` for always-white text.
+        white: 'rgb(var(--c-white) / <alpha-value>)',
+        pure: '#FFFFFF',
         night: {
-          DEFAULT: '#050816',
-          950: '#03050f',
-          900: '#050816',
-          800: '#0B1023',
-          700: '#0F172A',
-          600: '#111827',
+          DEFAULT: 'rgb(var(--c-night) / <alpha-value>)',
+          950: 'rgb(var(--c-night-950) / <alpha-value>)',
+          900: 'rgb(var(--c-night) / <alpha-value>)',
+          800: 'rgb(var(--c-night-800) / <alpha-value>)',
+          700: 'rgb(var(--c-night-700) / <alpha-value>)',
+          600: 'rgb(var(--c-night-600) / <alpha-value>)',
         },
+        slate: {
+          200: 'rgb(var(--c-slate-200) / <alpha-value>)',
+          300: 'rgb(var(--c-slate-300) / <alpha-value>)',
+          400: 'rgb(var(--c-slate-400) / <alpha-value>)',
+          500: 'rgb(var(--c-slate-500) / <alpha-value>)',
+        },
+        cyan: { 200: 'rgb(var(--c-cyan-200) / <alpha-value>)', 300: 'rgb(var(--c-cyan-300) / <alpha-value>)' },
+        emerald: { 200: 'rgb(var(--c-emerald-200) / <alpha-value>)', 300: 'rgb(var(--c-emerald-300) / <alpha-value>)' },
+        amber: { 100: 'rgb(var(--c-amber-100) / <alpha-value>)', 200: 'rgb(var(--c-amber-200) / <alpha-value>)', 300: 'rgb(var(--c-amber-300) / <alpha-value>)' },
+        orange: { 200: 'rgb(var(--c-orange-200) / <alpha-value>)' },
+        rose: { 300: 'rgb(var(--c-rose-300) / <alpha-value>)' },
+        violet: { 300: 'rgb(var(--c-violet-300) / <alpha-value>)' },
         primary: {
           DEFAULT: '#6366F1',
           blue: '#3B82F6',
@@ -38,18 +54,18 @@ export default {
           foreground: '#050816',
         },
         // shadcn/ui semantic tokens
-        border: 'rgb(255 255 255 / 0.08)',
-        input: 'rgb(255 255 255 / 0.1)',
+        border: 'rgb(var(--c-white) / 0.08)',
+        input: 'rgb(var(--c-white) / 0.1)',
         ring: '#818CF8',
-        background: '#050816',
-        foreground: '#FFFFFF',
+        background: 'rgb(var(--c-night))',
+        foreground: 'rgb(var(--c-white))',
         muted: {
           DEFAULT: '#111827',
           foreground: '#A5B4CF',
         },
         card: {
-          DEFAULT: 'rgb(15 23 42 / 0.6)',
-          foreground: '#FFFFFF',
+          DEFAULT: 'rgb(var(--c-night-700) / 0.6)',
+          foreground: 'rgb(var(--c-white))',
         },
       },
       fontFamily: {
@@ -68,13 +84,13 @@ export default {
         'gradient-accent': 'linear-gradient(135deg, #06B6D4 0%, #3B82F6 50%, #8B5CF6 100%)',
         'gradient-text': 'linear-gradient(90deg, #22D3EE 0%, #3B82F6 25%, #8B5CF6 50%, #A855F7 75%, #22D3EE 100%)',
         'grid-lines':
-          'linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px)',
+          'linear-gradient(to right, rgb(var(--c-white) / 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgb(var(--c-white) / 0.04) 1px, transparent 1px)',
       },
       boxShadow: {
         glow: '0 0 40px -8px rgb(99 102 241 / 0.55)',
         'glow-lg': '0 0 80px -12px rgb(139 92 246 / 0.6)',
         'glow-cyan': '0 0 40px -8px rgb(34 211 238 / 0.55)',
-        glass: '0 8px 32px 0 rgb(0 0 0 / 0.35), inset 0 1px 0 0 rgb(255 255 255 / 0.06)',
+        glass: '0 8px 32px 0 rgb(15 23 42 / var(--glass-shadow)), inset 0 1px 0 0 rgb(255 255 255 / 0.06)',
       },
       keyframes: {
         aurora: {

@@ -6,10 +6,10 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-gradient-primary bg-[length:200%_auto] text-white shadow-glow hover:bg-[position:100%_0] hover:shadow-glow-lg',
+          'bg-gradient-primary bg-[length:200%_auto] text-pure shadow-glow hover:bg-[position:100%_0] hover:shadow-glow-lg',
         outline:
           'border border-white/15 bg-white/[0.04] text-white backdrop-blur-xl hover:border-white/30 hover:bg-white/[0.08]',
-        secondary: 'bg-white text-night hover:bg-cyan-50',
+        secondary: 'bg-white text-night hover:opacity-90',
         ghost: 'text-white/80 hover:bg-white/[0.06] hover:text-white',
         link: 'rounded-none px-0 text-cyan-300 underline-offset-4 hover:underline',
       },

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Float, MeshDistortMaterial, Sparkles } from '@react-three/drei'
 import { MathUtils } from 'three'
+import useTheme from '@/hooks/useTheme'
 
 // World units that correspond to the anchor's width at scale 1
 // (the orb was designed around a ~3.45-unit wide profile frame).
@@ -26,7 +27,7 @@ function useAnchor(root, anchorRef) {
   })
 }
 
-function Orb({ anchorRef }) {
+function Orb({ anchorRef, light }) {
   const root = useRef(null)
   const group = useRef(null)
   const ring = useRef(null)
@@ -61,7 +62,7 @@ function Orb({ anchorRef }) {
           </mesh>
           <mesh scale={2.2}>
             <icosahedronGeometry args={[1, 1]} />
-            <meshBasicMaterial color="#22D3EE" wireframe transparent opacity={0.16} />
+            <meshBasicMaterial color={light ? '#0891B2' : '#22D3EE'} wireframe transparent opacity={light ? 0.3 : 0.16} />
           </mesh>
         </Float>
 
@@ -74,7 +75,7 @@ function Orb({ anchorRef }) {
           <meshBasicMaterial color="#22D3EE" transparent opacity={0.35} />
         </mesh>
 
-        <Sparkles count={70} scale={[7, 7, 4]} size={2.4} speed={0.35} color="#A5B4FC" opacity={0.8} />
+        <Sparkles count={70} scale={[7, 7, 4]} size={2.4} speed={0.35} color={light ? '#6366F1' : '#A5B4FC'} opacity={0.8} />
       </group>
     </group>
   )
@@ -88,6 +89,7 @@ function Orb({ anchorRef }) {
 export default function HeroScene({ anchorRef }) {
   const wrapperRef = useRef(null)
   const [inView, setInView] = useState(true)
+  const { theme } = useTheme()
 
   useEffect(() => {
     const element = wrapperRef.current
@@ -109,7 +111,7 @@ export default function HeroScene({ anchorRef }) {
       >
         <ambientLight intensity={0.35} />
         <directionalLight position={[3, 4, 5]} intensity={2.2} />
-        <Orb anchorRef={anchorRef} />
+        <Orb anchorRef={anchorRef} light={theme === 'light'} />
       </Canvas>
     </div>
   )

@@ -26,7 +26,7 @@ export default function SectionHeading({
         <Reveal variant="blurIn">
           <span className="eyebrow">
             <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_12px_2px_rgba(34,211,238,0.7)]" />
-            {index ? <span className="text-white/40">{index}</span> : null}
+            {index ? <span className="text-white/70">{index}</span> : null}
             {eyebrow}
           </span>
         </Reveal>

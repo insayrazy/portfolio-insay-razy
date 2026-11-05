@@ -37,7 +37,7 @@ export default function CircularProgress({
             <stop offset="100%" stopColor="#22D3EE" />
           </linearGradient>
         </defs>
-        <circle cx={center} cy={center} r={radius} fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth={stroke} />
+        <circle cx={center} cy={center} r={radius} fill="none" stroke="currentColor" strokeWidth={stroke} className="text-white/[0.06]" />
         <motion.circle
           cx={center}
           cy={center}

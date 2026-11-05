@@ -18,6 +18,17 @@
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#050816" />
     <meta name="color-scheme" content="dark" />
+    <script>
+      // Apply the saved theme before first paint to avoid a flash of the wrong colours.
+      try {
+        if (localStorage.getItem('portfolio-theme') === 'light') {
+          document.documentElement.dataset.theme = 'light'
+          document.querySelector('meta[name="theme-color"]').content = '#F1F5FB'
+        }
+      } catch (error) {
+        // Storage can be unavailable; the dark default applies.
+      }
+    </script>
     <link rel="canonical" href="https://insayrazy.vercel.app/" />
 
     <!-- Icons -->

@@ -219,7 +219,7 @@ export default function Hero() {
             </div>
 
             {/* Photo */}
-            <div className="absolute inset-[12%] overflow-hidden rounded-full border border-white/10 bg-night-700 shadow-glow-lg">
+            <div className="absolute inset-[12%] overflow-hidden rounded-full border border-white/10 bg-gradient-to-b from-indigo-500/80 via-[#1e1b4b] to-[#0b1023] shadow-glow-lg">
               <img
                 src={site.profileImage}
                 alt={t('a11y.portrait', { name: site.name })}
@@ -265,7 +265,7 @@ export default function Hero() {
 
             <motion.div style={{ x: badgeX, y: badgeY }} className="absolute -right-2 bottom-[12%] sm:-right-6">
               <div className="glass-strong flex animate-float-delayed items-center gap-3 rounded-2xl px-4 py-3">
-                <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-orange-500 to-red-500">
+                <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-orange-500 to-red-500 text-pure">
                   <GraduationCap className="h-4 w-4" aria-hidden="true" />
                 </span>
                 <span className="text-left">

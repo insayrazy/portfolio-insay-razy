@@ -46,7 +46,7 @@ export default function AuroraBackground() {
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(60% 50% at 15% 10%, rgba(59,130,246,0.16), transparent 60%), radial-gradient(50% 45% at 85% 20%, rgba(168,85,247,0.14), transparent 60%), radial-gradient(60% 50% at 50% 100%, rgba(6,182,212,0.10), transparent 60%), linear-gradient(180deg, #050816 0%, #0B1023 50%, #050816 100%)',
+            'radial-gradient(60% 50% at 15% 10%, rgba(59,130,246,0.16), transparent 60%), radial-gradient(50% 45% at 85% 20%, rgba(168,85,247,0.14), transparent 60%), radial-gradient(60% 50% at 50% 100%, rgba(6,182,212,0.10), transparent 60%), linear-gradient(180deg, rgb(var(--c-night)) 0%, rgb(var(--c-night-800)) 50%, rgb(var(--c-night)) 100%)',
         }}
       />
 
@@ -75,7 +75,10 @@ export default function AuroraBackground() {
 
       {/* Noise + vignette */}
       <div className="noise absolute inset-0 opacity-[0.05] mix-blend-overlay" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(3,5,15,0.85)_100%)]" />
+      <div
+        className="absolute inset-0"
+        style={{ background: 'radial-gradient(ellipse at center, transparent 40%, rgb(var(--c-night-950) / 0.85) 100%)' }}
+      />
     </div>
   )
 }
